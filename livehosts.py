@@ -33,8 +33,9 @@ def argument_parse():
     parser.add_argument('input_file', help='Input file with domain list')
     parser.add_argument('-v', '--verbose', help="Verbose output", action="store_true")
     parser.add_argument('-s', '--add_schema', help="Add 'http://' and 'https://' to items in list", action="store_true")
+    parser.add_argument('-o', '--output', help='Output file to save results to')
     args = parser.parse_args()
-    return args.input_file, args.verbose, args.add_schema
+    return args.input_file, args.verbose, args.add_schema, args.output
 
 def getlist(url_file):
     #open list of addresses
@@ -119,10 +120,27 @@ def progress(count, total, status=''):
     bar = '=' * filled_len + '-' * (bar_len - filled_len)
     sys.stdout.write('\r[%s] %s%s ...%s\r' % (bar, percents, '%', status))
     sys.stdout.flush()
+    return None
+
+def writetofile(code200, code404, code503):
+    writeout = open(output, 'w')
+    writeout.write('\nCode 200:\n')
+    for i in code200:
+        writeout.write(i + "\n")
+    writeout.write('\nCode 404:\n')
+    for i in code404:
+        writeout.write(i + '\n')
+    writeout.write('\nCode 503:\n')
+    for i in code503:
+        writeout.write(i + '\n')
+    return None
 
 # Entry point
 banner()
-url_file, verbose, add_schema = argument_parse()
+url_file, verbose, add_schema, output = argument_parse()
 url_list, length = getlist(url_file)
 it_list(url_list)
 display()
+if output:
+    writetofile(code200, code404, code503)
+

@@ -13,5 +13,6 @@ The `-s` flag tells the script to add http:// and https:// before checking the U
 
 The `-v` flag enables verbose output, displaying each URL as it's found. Non-verbose mode only shows the banner and final output.
 
+The '-o' flag writes the final output to a file, ex: `-o outfile.txt`
 ## TODO
-- Add option to output to file (in progress)
+- ~~Add option to output to file (in progress)~~
