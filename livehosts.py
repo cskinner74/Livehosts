@@ -112,6 +112,7 @@ def display():
     return None
 
 def progress(count, total, status=''):
+    # Source: https://gist.github.com/vladignatyev/06860ec2040cb497f0f3
     bar_len = 60
     filled_len = int(round(bar_len * count / float(total)))
     percents = round(100.1 * count / float(total), 1)
