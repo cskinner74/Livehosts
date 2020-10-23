@@ -6,12 +6,7 @@
 # Twitter: @TheCodySkinner
 
 import requests, argparse, sys, time
-from requests.exceptions import ConnectionError, TooManyRedirects, MissingSchema
-
-# Global vars
-# 200 list
-# 403 list
-# etc.
+from requests.exceptions import ConnectionError, TooManyRedirects
 
 code200 = []
 code404 = []
