@@ -12,3 +12,6 @@ Example:
 The `-s` flag tells the script to add http:// and https:// before checking the URL, in cases where one has a domain list without the schema.
 
 The `-v` flag enables verbose output, displaying each URL as it's found. Non-verbose mode only shows the banner and final output.
+
+## TOD
+- Add option to output to file (in progress)
